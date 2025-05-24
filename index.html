@@ -68,7 +68,7 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 
     <!-- css -->
     <link rel="stylesheet" href="src/assets/styles/global.css" />
@@ -254,13 +254,26 @@
             d="M0,0L48,32C96,64,192,128,288,138.7C384,149,480,107,576,106.7C672,107,768,149,864,144C960,139,1056,85,1152,69.3C1248,53,1344,75,1392,85.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
           ></path>
         </svg>
-        <div style="display: none">
+        <div>
           <h2 data-aos="zoom-in" data-aos-duration="1000">Love Gift</h2>
+
           <p data-aos="zoom-in" data-aos-duration="1000">
-            Tanpa mengurangi rasa hormat, bagi anda yang ingin memberikan tanda
-            kasih untuk kami, dapat melalui :
+            Dengan segala kerendahan hati, apabila Bapak/Ibu/Saudara/i berkenan
+            memberikan tanda kasih, kami dengan senang hati menerimanya.<br />
+
+            <a
+              class="fancy-button"
+              href="javascript:;"
+              onclick="toggleRekening()"
+              aria-label="Link rekening"
+            >
+              <i class="bx bxs-credit-card" aria-hidden="true"></i>
+              <span>Transfer Non-tunai</span>
+            </a>
           </p>
-          <div></div>
+
+          <!-- Nomor rekening dirender oleh JavaScript -->
+          <div id="rekeningDiv" style="display: none"></div>
         </div>
 
         <div data-aos="zoom-in" data-aos-duration="1000">
@@ -344,5 +357,15 @@
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="src/main.js" type="module"></script>
+    <script>
+      function toggleRekening() {
+        const rekeningDiv = document.getElementById('rekeningDiv');
+        if (rekeningDiv.style.display === 'none') {
+          rekeningDiv.style.display = 'flex';
+        } else {
+          rekeningDiv.style.display = 'none';
+        }
+      }
+    </script>
   </body>
 </html>

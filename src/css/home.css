@@ -103,3 +103,23 @@
   bottom: -14rem;
   z-index: -10;
 }
+
+.fancy-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 4px 16px;
+  background-color: #d58cd0;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  width: 230px;
+  margin: auto;
+}
+
+.fancy-button:hover {
+  background-color: #e91e63;
+  transform: scale(1.05);
+}

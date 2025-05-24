@@ -86,11 +86,25 @@
   transition: var(--transition-small);
   border-radius: 15px;
   cursor: pointer;
+  animation: standbyEffect 4s infinite ease-in-out;
 }
 
 .welcome button:hover {
   color: #fff;
   background-color: #d58cd0;
+  transform: scale(1.05);
+}
+
+@keyframes standbyEffect {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .welcome button i {

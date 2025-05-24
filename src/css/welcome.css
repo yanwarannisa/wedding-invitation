@@ -100,36 +100,21 @@
 }
 
 .welcome button {
-  display: inherit;
+  display: flex;
   align-items: inherit;
   justify-content: inherit;
   gap: 0.4rem;
   color: #4a2e25;
   padding: 0.5rem 1rem;
   border: none;
-  transition: var(--transition-small);
   border-radius: 15px;
   cursor: pointer;
-  animation: standbyEffect 4s infinite ease-in-out;
   margin-bottom: 2.5rem;
 }
 
 .welcome button:hover {
   color: #fff;
   background-color: #4a2e25;
-  transform: scale(1.05);
-}
-
-@keyframes standbyEffect {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
 }
 
 .welcome button i {

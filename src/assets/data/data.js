@@ -2,7 +2,7 @@ export const data = {
   bride: {
     L: {
       id: 1,
-      name: 'Yanwar Sarip',
+      name: 'Yanwar Sarip, S.Kom.',
       child: 'Putra pertama',
       father: 'Abdurahmat (Almarhum)',
       mother: 'Yuyun Yuningsih',
@@ -10,7 +10,7 @@ export const data = {
     },
     P: {
       id: 2,
-      name: 'Annisa Zulaikha Hayatin',
+      name: 'Annisa Zulaikha Hayatin, A.Md.Keb.',
       child: 'Putri pertama',
       father: 'Enon Saepudinm (Almarhum)',
       mother: 'Enik Nurjanah',

@@ -107,7 +107,7 @@
   font-size: 1.2rem;
 }
 
-@media (orientation: landscape) and (max-width: 768px) {
+@media (max-height: 600px) {
   .welcome figure img {
     display: none;
   }

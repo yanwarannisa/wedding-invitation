@@ -53,7 +53,7 @@
 }
 
 .wishas div:nth-of-type(1) > div figure button:hover {
-  background-color: #dcbea5;
+  background-color: #4a2e25;
   color: #fff;
 }
 
@@ -95,7 +95,7 @@
 .wishas div:nth-of-type(2) > form button {
   width: 100%;
   color: #fff;
-  background-color: #dcbea5;
+  background-color: #4a2e25;
   padding: 0.6rem 0;
   border-radius: 5px;
   margin-top: 1rem;

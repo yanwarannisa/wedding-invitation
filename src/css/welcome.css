@@ -3,12 +3,12 @@
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   flex-direction: column;
   text-align: center;
   background-color: #4a2e25;
   /* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,1px 1px 0 #000; */
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -62,7 +62,7 @@
   font-size: var(--fontSize-heading-base);
   font-family: var(--sacramento);
   font-weight: 600;
-  margin-top: 0.5rem;
+  /* margin-top: 0.5rem; */
 }
 
 .welcome p span {
@@ -83,6 +83,7 @@
   border-radius: 15px;
   cursor: pointer;
   animation: standbyEffect 4s infinite ease-in-out;
+  margin-bottom: 0.5rem;
 }
 
 .welcome button:hover {

@@ -18,6 +18,7 @@ export const data = {
     },
 
     couple: './src/assets/images/couple.png',
+    welcome: './src/assets/images/welcome.png',
   },
 
   time: {
@@ -37,7 +38,7 @@ export const data = {
       date: '29',
       day: 'Ahad',
       hours: {
-        start: '11.00',
+        start: '10.00',
         finish: 'Selesai',
       },
     },

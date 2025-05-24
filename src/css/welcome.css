@@ -6,23 +6,22 @@
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  background-color: #212529;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    1px 1px 0 #000;
+  background-color: #4a2e25;
+  /* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,1px 1px 0 #000; */
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 99;
-  color: #ffdbeb;
+  color: #dcbea5;
   transition: all 2s ease-in;
   opacity: 0;
   transform: translateY(-100%);
-  background: url('./../assets/images/bg.jpg');
+  /* background: url('./../assets/images/bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center; */
 }
 
 .welcome.active {
@@ -36,7 +35,7 @@
 }
 
 .welcome h2 {
-  font-size: 1.8rem;
+  font-size: 2.4rem;
   font-family: var(--sacramento);
   font-weight: 400;
 }
@@ -44,26 +43,22 @@
 .welcome figure {
   display: inherit;
   align-items: inherit;
-  justify-content: flex-start;
+  justify-content: inherit;
   flex-direction: inherit;
-  margin: 0;
-  height: 50vh;
+  margin: 1rem 0;
 }
 
 .welcome figure img {
-  width: 10rem;
-  height: 10rem;
-  border-radius: 50%;
+  width: 18rem;
+  height: 18rem;
+  /* border-radius: 50%; */
   object-fit: cover;
-  box-shadow: var(--shadow-md);
-  border: 2px solid #fff;
+  /* box-shadow: var(--shadow-md); */
+  /* border: 2px solid #fff; */
 }
 
 .welcome figure figcaption {
   font-size: var(--fontSize-heading-base);
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    1px 1px 0 #000;
-
   font-family: var(--sacramento);
   font-weight: 600;
   margin-top: 0.5rem;
@@ -80,7 +75,7 @@
   align-items: inherit;
   justify-content: inherit;
   gap: 0.4rem;
-  color: #d58cd0;
+  color: #4a2e25;
   padding: 0.5rem 1rem;
   border: none;
   transition: var(--transition-small);
@@ -91,7 +86,7 @@
 
 .welcome button:hover {
   color: #fff;
-  background-color: #d58cd0;
+  background-color: #dcbea5;
   transform: scale(1.05);
 }
 

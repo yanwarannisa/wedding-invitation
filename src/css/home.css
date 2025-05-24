@@ -56,7 +56,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #d58cd0;
+  border: 1px solid #dcbea5;
   border-radius: 8px;
 }
 
@@ -74,7 +74,7 @@
   padding: 0.5rem 1rem;
   color: #fff;
   font-size: 1rem;
-  background-color: #d58cd0;
+  background-color: #dcbea5;
   margin: 1rem auto;
   border-radius: 20px;
   width: fit-content;
@@ -110,7 +110,7 @@
   justify-content: center;
   gap: 0.5rem;
   padding: 4px 16px;
-  background-color: #d58cd0;
+  background-color: #dcbea5;
   color: #fff;
   text-decoration: none;
   border-radius: 20px;

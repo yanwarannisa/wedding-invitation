@@ -370,6 +370,14 @@
           rekeningDiv.style.display = 'none';
         }
       }
+      // Function to update the --vh variable
+      function updateVh() {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+      }
+      // Call the function on initial load and on resize
+      window.addEventListener('resize', updateVh);
+      updateVh(); // Initial call
     </script>
   </body>
 </html>

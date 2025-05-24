@@ -27,11 +27,8 @@
 }
 
 .home figure img {
-  width: 10rem;
-  height: 10rem;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: var(--shadow-md);
+  width: 14rem;
+  height: 14rem;
 }
 
 .home figure figcaption {

@@ -8,3 +8,5 @@ dan menarik bagi pengguna dalam menyebarkan undangan pernikahan.
 Proyek ini merupakan clone dan modifikasi dari repo milik [Sandi Perdiansah](https://github.com/sdprdh/wedding-invitation)
 
 Proyek asal milik [Dewanakl](https://github.com/dewanakl)
+
+<a href='https://pngtree.com/freepng/cute-avatar-muslim-wedding-couple-editable-illustration-invitation-element_7886431.html'>png image from pngtree.com/</a>

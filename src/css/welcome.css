@@ -58,11 +58,39 @@
   /* border: 2px solid #fff; */
 }
 
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 10ch;
+  }
+  75% {
+    width: 10ch;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
 .welcome figure figcaption {
   font-size: var(--fontSize-heading-base);
   font-family: var(--sacramento);
   font-weight: 600;
   margin-top: 0.5rem;
+
+  /* Added typewriter effect */
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 1px solid #fff5eb;
+  width: 10ch;
+  animation: typing 7s steps(10, end) infinite, blink 0.7s step-end infinite;
 }
 
 .welcome p span {

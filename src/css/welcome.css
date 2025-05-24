@@ -1,6 +1,6 @@
 .welcome {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -8,7 +8,7 @@
   text-align: center;
   background-color: #4a2e25;
   /* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,1px 1px 0 #000; */
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;

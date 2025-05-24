@@ -1,6 +1,6 @@
 .welcome {
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -111,7 +111,7 @@
   border-radius: 15px;
   cursor: pointer;
   animation: standbyEffect 4s infinite ease-in-out;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .welcome button:hover {

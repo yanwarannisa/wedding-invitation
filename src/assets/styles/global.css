@@ -18,6 +18,8 @@
 html {
   scroll-behavior: smooth;
   scrollbar-width: none !important;
+  height: 100%;
+  margin: 0;
 }
 
 * {
@@ -32,6 +34,8 @@ body {
   font-family: 'Josefin Sans', sans-serif;
   color: var(--primary-font-color);
   overflow-y: hidden;
+  height: 100%;
+  margin: 0;
 }
 
 body.active {

@@ -35,7 +35,11 @@ export const welcome = () => {
 
     let guestName = '';
     if (send) {
-      guestName = atob(send);
+      try {
+        guestName = atob(send);
+      } catch (error) {
+        guestName = send; // Fallback if invalid Base64
+      }
     } else if (params) {
       guestName = params;
     }

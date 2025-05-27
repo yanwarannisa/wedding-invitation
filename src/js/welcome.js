@@ -31,10 +31,18 @@ export const welcome = () => {
   const generateParameterContent = () => {
     const name = document.querySelector('#name');
     const params = getQueryParameter('to');
+    const send = getQueryParameter('send');
 
-    if (params) {
-      weddingToElement.innerHTML = `Kepada Yth Bapak/Ibu/Saudara/i<br><span>${params}</span>`;
-      name.value = params;
+    let guestName = '';
+    if (send) {
+      guestName = atob(send);
+    } else if (params) {
+      guestName = params;
+    }
+
+    if (guestName) {
+      weddingToElement.innerHTML = `Kepada Yth Bapak/Ibu/Saudara/i<br><span>${guestName}</span>`;
+      name.value = guestName;
     } else {
       weddingToElement.innerHTML = `Kepada Yth Bapak/Ibu/Saudara/i<br><span>Teman-teman semua</span>`;
     }

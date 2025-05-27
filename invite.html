@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Undangan Pernikahan Yanwar & Annisa</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="invite.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Undangan Pernikahan <br />Yanwar & Annisa</h1>
+      <form id="invitationForm">
+        <label for="namaTamu">Nama Tamu Undangan (*wajib)</label>
+        <input
+          type="text"
+          id="namaTamu"
+          name="namaTamu"
+          placeholder="Isi dengan nama tamu undangan"
+          required
+        />
+
+        <label for="nomorWA">Nomor WhatsApp (opsional)</label>
+        <input
+          type="tel"
+          id="nomorWA"
+          name="nomorWA"
+          placeholder="contoh: 6281234567890"
+        />
+
+        <label for="templatePesan">Template Pesan</label>
+        <textarea id="templatePesan" name="templatePesan" rows="4">
+Assalamualaikum warahmatullahi wabarakatuh {invited_guests}. 
+Dengan hati yang penuh kebahagiaan, kami ingin mengundang Anda untuk hadir merayakan momen istimewa kami. Kehadiran Anda akan sangat berarti bagi kami. Informasi selengkapnya dapat Anda temukan melalui tautan berikut: {link}
+</textarea
+        >
+        <div class="button-group">
+          <button type="button" id="btnCopyLink" class="btn-animate btn-copy">
+            <i class="fa fa-copy"></i> Copy Link
+          </button>
+          <button
+            type="button"
+            id="btnKirimWA"
+            class="btn-animate btn-whatsapp"
+          >
+            <i class="fa fa-whatsapp"></i> Kirim ke WA
+          </button>
+        </div>
+      </form>
+      <p id="feedback" class="feedback"></p>
+    </div>
+
+    <script src="invite.js"></script>
+  </body>
+</html>

@@ -10,7 +10,7 @@ const btnKirimWA = document.getElementById('btnKirimWA');
 const feedbackPara = document.getElementById('feedback');
 
 // Base URL
-const BASE_URL = 'https://wedding-invitation.test/?to=';
+const BASE_URL = 'https://yanwarannisa.github.io/wedding-invitation/?send=';
 
 function generateLink(namaTamu) {
   // Encode nama tamu dengan base64

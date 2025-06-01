@@ -6,7 +6,8 @@ export const data = {
       child: 'Putra pertama',
       father: 'Abdurahmat (alm)',
       mother: 'Yuyun Yuningsih',
-      image: './src/assets/images/cowo.png',
+      image: './src/assets/images/Y.png',
+      // image: './src/assets/images/cowo.png',
     },
     P: {
       id: 2,
@@ -14,11 +15,12 @@ export const data = {
       child: 'Putri pertama',
       father: 'Enon Saepudin (alm)',
       mother: 'Enik Nurjanah',
-      image: './src/assets/images/cewe.png',
+      image: './src/assets/images/A.png',
+      // image: './src/assets/images/cewe.png',
     },
 
-    couple: './src/assets/images/couple.png',
-    welcome: './src/assets/images/welcome.png',
+    couple: './src/assets/images/siluet-black.png',
+    welcome: './src/assets/images/siluet.png',
   },
 
   time: {

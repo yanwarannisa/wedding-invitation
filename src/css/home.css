@@ -56,7 +56,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #4a2e25;
+  border: 1px solid #0c0c0c;
   border-radius: 8px;
 }
 
@@ -74,7 +74,7 @@
   padding: 0.5rem 1rem;
   color: #fff;
   font-size: 1rem;
-  background-color: #4a2e25;
+  background-color: #0c0c0c;
   margin: 1rem auto;
   border-radius: 20px;
   width: fit-content;
@@ -110,7 +110,7 @@
   justify-content: center;
   gap: 0.5rem;
   padding: 4px 16px;
-  background-color: #4a2e25;
+  background-color: #0c0c0c;
   color: #fff;
   text-decoration: none;
   border-radius: 20px;
@@ -120,6 +120,6 @@
 }
 
 .fancy-button:hover {
-  background-color: #4a2e25;
+  background-color: #0c0c0c;
   transform: scale(1.05);
 }

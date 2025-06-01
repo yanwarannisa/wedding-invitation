@@ -4,6 +4,16 @@
   text-align: center;
   padding: 10rem 8rem;
   position: relative;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.8)
+    ),
+    url(../assets/images/parallax-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed; /* Memberikan efek parallax */
+  z-index: -1;
 }
 
 .time h2 {
@@ -30,7 +40,7 @@
   padding: 0.5rem 1rem;
   color: #fff;
   font-size: 1rem;
-  background-color: #4a2e25;
+  background-color: #0c0c0c;
   margin: 2rem auto 1rem;
   border-radius: 20px;
   width: fit-content;

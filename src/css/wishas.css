@@ -5,6 +5,7 @@
   background-color: var(--bg-color);
   position: relative;
   text-align: center;
+  z-index: 1;
 }
 
 .wishas div:nth-of-type(1) h2,

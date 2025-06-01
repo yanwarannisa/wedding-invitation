@@ -1,8 +1,17 @@
 footer {
-  margin-top: 6rem;
   width: 100%;
   padding: 4rem 8rem;
   text-align: center;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.8)
+    ),
+    url(../assets/images/parallax-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed; /* Memberikan efek parallax */
+  z-index: -1;
 }
 
 footer h2 {
@@ -42,4 +51,8 @@ footer > div a {
   justify-content: center;
   color: #000;
   font-size: 0.8rem;
+}
+
+footer > p {
+  margin-top: 6rem;
 }

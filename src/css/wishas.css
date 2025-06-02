@@ -200,7 +200,7 @@
 .wishas svg:nth-of-type(1) {
   position: absolute;
   z-index: 1;
-  top: -12rem;
+  top: -10rem;
   left: 0;
   right: 0;
 }
@@ -210,5 +210,5 @@
   z-index: -10;
   left: 0;
   right: 0;
-  bottom: -15rem;
+  bottom: -10rem;
 }

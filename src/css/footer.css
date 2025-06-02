@@ -1,5 +1,5 @@
 footer {
-  padding: 4rem 8rem;
+  padding: 0 4rem 4rem;
   text-align: center;
   background-image: linear-gradient(
       rgba(255, 255, 255, 0.8),
@@ -51,8 +51,4 @@ footer > div a {
   justify-content: center;
   color: #000;
   font-size: 0.8rem;
-}
-
-footer > p {
-  margin-top: 6rem;
 }

@@ -21,8 +21,14 @@ export const welcome = () => {
       P: { name: bridePName },
       welcome: welcomeImage,
     } = bride;
+
+    // return `
+    // <img src="${welcomeImage}" alt="welcome animation">
+    // <figcaption>
+    //     ${brideLName.split(' ')[0]} & ${bridePName.split(' ')[0]}
+    // </figcaption>`;
+
     return `
-            <img src="${welcomeImage}" alt="welcome animation">
             <figcaption>
                 ${brideLName.split(' ')[0]} & ${bridePName.split(' ')[0]}
             </figcaption>`;

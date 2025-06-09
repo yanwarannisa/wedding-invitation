@@ -40,14 +40,16 @@
   font-size: 2.4rem;
   font-family: var(--sacramento);
   font-weight: 400;
+  margin-top: 2rem;
 }
 
 .welcome figure {
   display: inherit;
   align-items: inherit;
-  justify-content: inherit;
+  justify-content: flex-end;
   flex-direction: inherit;
   margin: 1rem 0;
+  flex-grow: 1;
 }
 
 .welcome figure img {
@@ -90,7 +92,7 @@
   white-space: nowrap;
   overflow: hidden;
   border-right: 1px solid #fff5eb;
-  width: 10ch;
+  width: 12ch;
   animation: typing 7s steps(10, end) infinite, blink 0.7s step-end infinite;
 }
 
@@ -110,6 +112,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 3px;
+  margin-bottom: 2rem;
 }
 
 .welcome button {

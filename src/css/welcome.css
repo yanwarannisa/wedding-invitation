@@ -95,12 +95,20 @@
 
 .welcome p {
   margin-bottom: 4rem;
+  width: 300px;
 }
 
 .welcome p span {
-  font-size: 2rem;
-  margin: 1rem 0;
+  font-size: 1.2rem;
   display: block;
+  border: 1px solid #fff5eb;
+  min-height: 7rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3px;
 }
 
 .welcome button {

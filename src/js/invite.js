@@ -7,6 +7,7 @@ const nomorWAInput = document.getElementById('nomorWA');
 const templatePesanTxt = document.getElementById('templatePesan');
 const btnCopyLink = document.getElementById('btnCopyLink');
 const btnKirimWA = document.getElementById('btnKirimWA');
+const btnKirimLink = document.getElementById('btnKirimLink');
 const feedbackPara = document.getElementById('feedback');
 
 // Base URL
@@ -76,6 +77,39 @@ btnKirimWA.addEventListener('click', () => {
   window.open(waURL, '_blank');
   feedbackPara.innerText = 'Sedang menuju WhatsApp...';
 
+  setTimeout(() => {
+    feedbackPara.innerText = '';
+  }, 3000);
+});
+
+btnKirimLink.addEventListener('click', () => {
+  const namaTamu = namaTamuInput.value.trim();
+  if (!namaTamu) {
+    feedbackPara.innerText = 'Nama Tamu Undangan wajib diisi.';
+    return;
+  }
+
+  const linkUndangan = generateLink(namaTamu);
+
+  // Nomor WA opsional
+  let nomorWA = nomorWAInput.value.trim();
+  if (nomorWA && !nomorWA.startsWith('62')) {
+    nomorWA = nomorWA.replace(/^0/, '');
+    nomorWA = '62' + nomorWA;
+  }
+
+  // Hanya mengirim tautan undangan
+  const formattedLink = encodeURIComponent(linkUndangan);
+
+  let waURL = 'https://wa.me/';
+  if (nomorWA) {
+    waURL += nomorWA + '?text=' + formattedLink;
+  } else {
+    waURL += '?text=' + formattedLink;
+  }
+
+  window.open(waURL, '_blank');
+  feedbackPara.innerText = 'Sedang menuju WhatsApp...';
   setTimeout(() => {
     feedbackPara.innerText = '';
   }, 3000);

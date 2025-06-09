@@ -41,16 +41,35 @@ Dengan hati yang penuh kebahagiaan, kami ingin mengundang Anda untuk menghadiri 
 Kehadiran Anda akan sangat berarti bagi kami. Untuk informasi selengkapnya, silakan mengunjungi tautan berikut: {link}
 </textarea
         >
-        <div class="button-group">
-          <button type="button" id="btnCopyLink" class="btn-animate btn-copy">
-            <i class="fa fa-copy"></i> Copy Link
-          </button>
+
+        <div
+          style="
+            display: flex;
+            gap: 1rem;
+            justify-content: space-between;
+            flex-direction: column;
+          "
+        >
+          <div class="button-group">
+            <button type="button" id="btnCopyLink" class="btn-animate btn-copy">
+              <i class="fa fa-copy"></i> Copy Link
+            </button>
+            <button
+              type="button"
+              id="btnKirimWA"
+              class="btn-animate btn-whatsapp"
+            >
+              <i class="fa fa-whatsapp"></i> Kirim ke WA
+            </button>
+          </div>
+
           <button
             type="button"
-            id="btnKirimWA"
+            id="btnKirimLink"
             class="btn-animate btn-whatsapp"
+            style="background-color: #4c554f !important"
           >
-            <i class="fa fa-whatsapp"></i> Kirim ke WA
+            <i class="fa fa-link"></i> Kirim Link saja ke WA
           </button>
         </div>
       </form>

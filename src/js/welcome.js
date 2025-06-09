@@ -48,7 +48,7 @@ export const welcome = () => {
       weddingToElement.innerHTML = `Kepada Yth Bapak/Ibu/Saudara/i<br><span>${guestName}</span>`;
       name.value = guestName;
     } else {
-      weddingToElement.innerHTML = `Kepada Yth Bapak/Ibu/Saudara/i<br><span>Teman-teman semua</span>`;
+      weddingToElement.innerHTML = `Kepada Yth Bapak/Ibu/Saudara/i<br><span>Tamu Undangan</span>`;
     }
   };
 

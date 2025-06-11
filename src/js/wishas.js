@@ -71,15 +71,15 @@ export const wishas = () => {
     }
 
     return ` <li data-aos="zoom-in" data-aos-duration="1000">
-                     <div style="background-color: ${data.color}">${data.name
+                 <div style="background-color: ${data.color}">${data.name
       .charAt(0)
       .toUpperCase()}</div>
-                     <div>
-                         <h4>${name}</h4>
-                         <p>${date} <br>${data.status}</p>
-                         <p>${data.message}</p>
-                     </div>
-                 </li>`;
+                 <div>
+                     <h4>${name}</h4>
+                     <p>${date} <br>${data.status}</p>
+                     <p>${data.message}</p>
+                 </div>
+             </li>`;
   };
 
   let lengthComentar;
@@ -109,7 +109,8 @@ export const wishas = () => {
         listItemComentar
       );
     } catch (error) {
-      return `Error : ${error.message}`;
+      console.error('Error initializing comments:', error);
+      containerComentar.innerHTML = `<p>Error: ${error.message}</p>`;
     }
   };
 
@@ -127,27 +128,25 @@ export const wishas = () => {
     };
 
     try {
-      const response = await comentarService.getComentar();
-
       await comentarService.addComentar(comentar);
-
+      const response = await comentarService.getComentar();
       lengthComentar = response.comentar.length;
 
-      peopleComentar.textContent = `${++response.comentar
-        .length} Orang telah mengucapkan`;
+      peopleComentar.textContent = `${response.comentar.length} Orang telah mengucapkan`;
       containerComentar.insertAdjacentHTML(
         'afterbegin',
         listItemComentar(comentar)
       );
     } catch (error) {
-      return `Error : ${error.message}`;
+      console.error('Error adding comment:', error);
+      alert(`Error: ${error.message}`);
     } finally {
       buttonForm.textContent = 'Kirim';
       form.reset();
     }
   });
 
-  // click prev & next
+  // Click prev & next
   let currentPage = 1;
   let itemsPerPage = 4;
   let startIndex = 0;
@@ -173,7 +172,8 @@ export const wishas = () => {
       );
       pageNumber.textContent = currentPage.toString();
     } catch (error) {
-      console.log(error);
+      console.error('Error updating page:', error);
+      containerComentar.innerHTML = `<p>Error: ${error.message}</p>`;
     } finally {
       prevButton.disabled = false;
       nextButton.disabled = false;
@@ -181,7 +181,7 @@ export const wishas = () => {
   };
 
   nextButton.addEventListener('click', async () => {
-    if (endIndex <= lengthComentar) {
+    if (endIndex < lengthComentar) {
       currentPage++;
       startIndex = (currentPage - 1) * itemsPerPage;
       endIndex = startIndex + itemsPerPage;

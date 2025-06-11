@@ -56,10 +56,9 @@ export const wishas = () => {
   };
 
   const listItemComentar = (data) => {
-    const name = formattedName(data.name);
-    const newDate = formattedDate(data.date);
+    const name = formattedName(data.name); // Pastikan fungsi formattedName tersedia
+    const newDate = formattedDate(data.date); // Pastikan fungsi formattedDate tersedia
     let date = '';
-
     if (newDate.days < 1) {
       if (newDate.hours < 1) {
         date = `${newDate.minutes} menit yang lalu`;
@@ -69,7 +68,6 @@ export const wishas = () => {
     } else {
       date = `${newDate.days} hari, ${newDate.hours} jam yang lalu`;
     }
-
     return ` <li data-aos="zoom-in" data-aos-duration="1000">
                  <div style="background-color: ${data.color}">${data.name
       .charAt(0)
@@ -81,62 +79,91 @@ export const wishas = () => {
                  </div>
              </li>`;
   };
-
-  let lengthComentar;
-
+  // Variabel global untuk pagination
+  let currentPage = 1;
+  let itemsPerPage = 4; // Jumlah row per halaman
+  let totalCount = 0;
+  // Fungsi untuk memperbarui konten halaman berdasarkan pagination
+  const updatePageContent = async () => {
+    containerComentar.innerHTML =
+      '<h1 style="font-size: 1rem; margin: auto">Loading...</h1>'; // Pastikan containerComentar terdefinisi
+    pageNumber.textContent = '..'; // Pastikan pageNumber terdefinisi
+    prevButton.disabled = true; // Pastikan prevButton terdefinisi
+    nextButton.disabled = true; // Pastikan nextButton terdefinisi
+    try {
+      const response = await comentarService.getComentar(
+        currentPage,
+        itemsPerPage
+      );
+      const { comentar, count, next, previous } = response;
+      totalCount = count; // Total data dari Baserow
+      comentar.reverse(); // Membalik urutan data (terbaru di atas)
+      renderElement(comentar, containerComentar, listItemComentar); // Pastikan renderElement terdefinisi
+      pageNumber.textContent = currentPage.toString();
+      // Nonaktifkan tombol berdasarkan keberadaan next/previous
+      prevButton.disabled = previous === null;
+      nextButton.disabled = next === null;
+    } catch (error) {
+      console.error('Error updating page:', error);
+      containerComentar.innerHTML = `<p>Error: ${error.message}</p>`;
+    }
+  };
+  // Event listener untuk tombol Next
+  nextButton.addEventListener('click', async () => {
+    currentPage++; // Pindah ke halaman berikutnya
+    await updatePageContent();
+  });
+  // Event listener untuk tombol Previous
+  prevButton.addEventListener('click', async () => {
+    currentPage--; // Pindah ke halaman sebelumnya
+    await updatePageContent();
+  });
+  // Fungsi untuk inisialisasi tampilan komentar
   const initialComentar = async () => {
     containerComentar.innerHTML = `<h1 style="font-size: 1rem; margin: auto">Loading...</h1>`;
-    peopleComentar.textContent = '...';
+    peopleComentar.textContent = '...'; // Pastikan peopleComentar terdefinisi
     pageNumber.textContent = '..';
-
     try {
-      const response = await comentarService.getComentar();
-      const { comentar } = response;
-
-      lengthComentar = comentar.length;
-      comentar.reverse();
-
-      if (comentar.length > 0) {
-        peopleComentar.textContent = `${comentar.length} Orang telah mengucapkan`;
+      const response = await comentarService.getComentar(
+        currentPage,
+        itemsPerPage
+      );
+      const { comentar, count, next, previous } = response;
+      totalCount = count; // Total data dari Baserow
+      comentar.reverse(); // Membalik urutan data
+      if (totalCount > 0) {
+        peopleComentar.textContent = `${totalCount} Orang telah mengucapkan`;
       } else {
         peopleComentar.textContent = `Belum ada yang mengucapkan`;
       }
-
-      pageNumber.textContent = '1';
-      renderElement(
-        comentar.slice(startIndex, endIndex),
-        containerComentar,
-        listItemComentar
-      );
+      pageNumber.textContent = currentPage.toString();
+      renderElement(comentar, containerComentar, listItemComentar);
+      // Nonaktifkan tombol berdasarkan keberadaan next/previous
+      prevButton.disabled = previous === null;
+      nextButton.disabled = next === null;
     } catch (error) {
       console.error('Error initializing comments:', error);
       containerComentar.innerHTML = `<p>Error: ${error.message}</p>`;
     }
   };
-
+  // Event listener untuk submit form
   form.addEventListener('submit', async (e) => {
+    // Pastikan form terdefinisi
     e.preventDefault();
-    buttonForm.textContent = 'Loading...';
-
+    buttonForm.textContent = 'Loading...'; // Pastikan buttonForm terdefinisi
     const comentar = {
-      id: generateRandomId(),
+      id: generateRandomId(), // Pastikan fungsi generateRandomId tersedia
       name: e.target.name.value,
       status: e.target.status.value === 'y' ? 'Hadir' : 'Tidak Hadir',
       message: e.target.message.value,
-      date: getCurrentDateTime(),
-      color: generateRandomColor(),
+      date: getCurrentDateTime(), // Pastikan fungsi getCurrentDateTime tersedia
+      color: generateRandomColor(), // Pastikan fungsi generateRandomColor tersedia
     };
-
     try {
       await comentarService.addComentar(comentar);
-      const response = await comentarService.getComentar();
-      lengthComentar = response.comentar.length;
-
-      peopleComentar.textContent = `${response.comentar.length} Orang telah mengucapkan`;
-      containerComentar.insertAdjacentHTML(
-        'afterbegin',
-        listItemComentar(comentar)
-      );
+      currentPage = 1; // Kembali ke halaman pertama untuk menampilkan komentar terbaru
+      await updatePageContent();
+      peopleComentar.textContent = `${totalCount} Orang telah mengucapkan`;
     } catch (error) {
       console.error('Error adding comment:', error);
       alert(`Error: ${error.message}`);
@@ -145,59 +172,7 @@ export const wishas = () => {
       form.reset();
     }
   });
-
-  // Click prev & next
-  let currentPage = 1;
-  let itemsPerPage = 4;
-  let startIndex = 0;
-  let endIndex = itemsPerPage;
-
-  const updatePageContent = async () => {
-    containerComentar.innerHTML =
-      '<h1 style="font-size: 1rem; margin: auto">Loading...</h1>';
-    pageNumber.textContent = '..';
-    prevButton.disabled = true;
-    nextButton.disabled = true;
-
-    try {
-      const response = await comentarService.getComentar();
-      const { comentar } = response;
-
-      comentar.reverse();
-
-      renderElement(
-        comentar.slice(startIndex, endIndex),
-        containerComentar,
-        listItemComentar
-      );
-      pageNumber.textContent = currentPage.toString();
-    } catch (error) {
-      console.error('Error updating page:', error);
-      containerComentar.innerHTML = `<p>Error: ${error.message}</p>`;
-    } finally {
-      prevButton.disabled = false;
-      nextButton.disabled = false;
-    }
-  };
-
-  nextButton.addEventListener('click', async () => {
-    if (endIndex < lengthComentar) {
-      currentPage++;
-      startIndex = (currentPage - 1) * itemsPerPage;
-      endIndex = startIndex + itemsPerPage;
-      await updatePageContent();
-    }
-  });
-
-  prevButton.addEventListener('click', async () => {
-    if (currentPage > 1) {
-      currentPage--;
-      startIndex = (currentPage - 1) * itemsPerPage;
-      endIndex = startIndex + itemsPerPage;
-      await updatePageContent();
-    }
-  });
-
+  // Inisialisasi awal
   initialComentar().then();
   initialBank();
 };

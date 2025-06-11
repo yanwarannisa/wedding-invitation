@@ -86,10 +86,10 @@ export const wishas = () => {
   // Fungsi untuk memperbarui konten halaman berdasarkan pagination
   const updatePageContent = async () => {
     containerComentar.innerHTML =
-      '<h1 style="font-size: 1rem; margin: auto">Loading...</h1>'; // Pastikan containerComentar terdefinisi
-    pageNumber.textContent = '..'; // Pastikan pageNumber terdefinisi
-    prevButton.disabled = true; // Pastikan prevButton terdefinisi
-    nextButton.disabled = true; // Pastikan nextButton terdefinisi
+      '<h1 style="font-size: 1rem; margin: auto">Loading...</h1>';
+    pageNumber.textContent = '..';
+    prevButton.disabled = true;
+    nextButton.disabled = true;
     try {
       const response = await comentarService.getComentar(
         currentPage,
@@ -97,8 +97,8 @@ export const wishas = () => {
       );
       const { comentar, count, next, previous } = response;
       totalCount = count; // Total data dari Baserow
-      comentar.reverse(); // Membalik urutan data (terbaru di atas)
-      renderElement(comentar, containerComentar, listItemComentar); // Pastikan renderElement terdefinisi
+      // Tidak perlu reverse() karena sudah diurutkan di server
+      renderElement(comentar, containerComentar, listItemComentar);
       pageNumber.textContent = currentPage.toString();
       // Nonaktifkan tombol berdasarkan keberadaan next/previous
       prevButton.disabled = previous === null;
@@ -121,7 +121,7 @@ export const wishas = () => {
   // Fungsi untuk inisialisasi tampilan komentar
   const initialComentar = async () => {
     containerComentar.innerHTML = `<h1 style="font-size: 1rem; margin: auto">Loading...</h1>`;
-    peopleComentar.textContent = '...'; // Pastikan peopleComentar terdefinisi
+    peopleComentar.textContent = '...';
     pageNumber.textContent = '..';
     try {
       const response = await comentarService.getComentar(
@@ -130,7 +130,7 @@ export const wishas = () => {
       );
       const { comentar, count, next, previous } = response;
       totalCount = count; // Total data dari Baserow
-      comentar.reverse(); // Membalik urutan data
+      // Tidak perlu reverse() karena sudah diurutkan di server
       if (totalCount > 0) {
         peopleComentar.textContent = `${totalCount} Orang telah mengucapkan`;
       } else {

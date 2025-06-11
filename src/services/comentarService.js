@@ -4,7 +4,7 @@ export const comentarService = {
   getComentar: async function (page = 1, size = 4) {
     try {
       const response = await fetch(
-        `https://api.baserow.io/api/database/rows/table/569723/?user_field_names=true&page=${page}&size=${size}`,
+        `https://api.baserow.io/api/database/rows/table/569723/?user_field_names=true&page=${page}&size=${size}&order_by=-date`,
         {
           headers: {
             'Content-Type': 'application/json',
